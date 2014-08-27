@@ -4,6 +4,8 @@ javascript:(function(){
 
   if (!mirror) {
     navigator.getUserMedia({video: true}, function(media) {
+      window.mirrorStream = media
+
         var div = document.createElement('video')
         , body = document.querySelector('body')
         , bodySteez = window.getComputedStyle(body)
@@ -39,6 +41,7 @@ javascript:(function(){
     }, function(err){console.log(err)})
   } else {
     mirror.parentElement.removeChild(mirror)
+    window.mirrorStream.stop()
   }
   
 })()
