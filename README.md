@@ -1,5 +1,8 @@
-#Mirror Bookmarklet
+#Share camera and screen simultaneously on Google Hangouts
 
-A sweet bookmarklet to check out how good you're lookin'
+Add the link INSIDE [index.html](index.html) to your bookmarks (or right click and add link to bookmark). Then when you are sharing your browser screen, open the bookmark and voila!.
 
-*spoiler: you lookin' real good*
+[1]:javascript:(function(){   navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;   var mirror = document.querySelector('#lol-mirror');    if (!mirror) {     navigator.getUserMedia({video: true}, function(media) {       window.mirrorStream = media;          var div = document.createElement('video')         , body = document.querySelector('body')         , bodySteez = window.getComputedStyle(body)         , bodyWidth = Number(bodySteez.width.replace(/px$/, ''))         , bodyHeight = Number(bodySteez.height.replace(/px$/, ''))         , selfieWidth = bodyWidth / 6         , selfieHeight = (selfieWidth * 3) / 4         , selfieLeft = (bodyWidth /2) - (selfieWidth /2);        div.id = "lol-mirror";       div.style.width = selfieWidth + "px";       div.style.height = selfieHeight + "px";       div.style.position = "fixed";       div.style.bottom = 0;       div.style.left = selfieLeft + "px";       div.style.transform = "rotateY(180deg)";       div.style['z-index'] = 9999999;        document.querySelector('body').appendChild(div);       div.src = window.URL.createObjectURL(media);       div.play();             document.addEventListener('scroll', function(){         div.style.top = document.body.scrollTop + 'px';       })            }, function(err){console.log(err)})   } else {     mirror.parentElement.removeChild(mirror);     window.mirrorStream.stop();   }    })()
+
+
+
