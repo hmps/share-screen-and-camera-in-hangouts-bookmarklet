@@ -20,7 +20,7 @@ javascript:(function(){
       div.style.height = selfieHeight + "px";
       div.style.position = "fixed";
       div.style.bottom = "10px";
-      div.style.left = "10px";
+      div.style.right = "10px";
       div.style.transform = "rotateY(180deg)";
       div.style['z-index'] = 9999999;
 
