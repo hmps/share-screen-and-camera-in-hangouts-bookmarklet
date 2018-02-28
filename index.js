@@ -11,7 +11,7 @@ javascript:(function(){
         , bodySteez = window.getComputedStyle(body)
         , bodyWidth = Number(bodySteez.width.replace(/px$/, ''))
         , bodyHeight = Number(bodySteez.height.replace(/px$/, ''))
-        , selfieWidth = bodyWidth / 6
+        , selfieWidth = bodyWidth / 5
         , selfieHeight = (selfieWidth * 3) / 4
         , selfieLeft = (bodyWidth /2) - (selfieWidth /2);
 
@@ -19,8 +19,8 @@ javascript:(function(){
       div.style.width = selfieWidth + "px";
       div.style.height = selfieHeight + "px";
       div.style.position = "fixed";
-      div.style.bottom = 0;
-      div.style.left = selfieLeft + "px";
+      div.style.bottom = "10px";
+      div.style.left = "10px";
       div.style.transform = "rotateY(180deg)";
       div.style['z-index'] = 9999999;
 
